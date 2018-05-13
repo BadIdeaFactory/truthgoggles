@@ -1,5 +1,5 @@
 ---
-name: 'Experiment: '
+name: 'Propose Experiment'
 about: Have an idea for interfaces / interventions that might help partisan readers
   thoughtfully engage with information that challenges their world view?
 
@@ -11,7 +11,7 @@ about: Have an idea for interfaces / interventions that might help partisan read
 ## Proposed intervention
 {A description of how the tool / experiment would actually work for a user}
 
-## Where Are the Lulz?
+## Where are the Lulz?
 {A description of why anybody else would find this interesting}
 
 ## Concierge MVP
