@@ -23,4 +23,19 @@ $> yarn install
 $> yarn install
 ```
 
+
+## Database setup
+
+0. Make sure you have sequelize CLI since that will be useful
+
+```
+yarn global add sequelize-cli
+```
+
+1. Create the database (we're using postgres)
+
+```
+createdb truthgoggles
+```
+
 Congratulations you are all set!
