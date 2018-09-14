@@ -1,9 +1,5 @@
-/**
-* index.js
-*/
-
-
 import http from 'http';
+
 import express from 'express';
 // Express app setup
 const app = express();
