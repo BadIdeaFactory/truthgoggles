@@ -49,13 +49,17 @@ message how reviewers should test that your change works as expected.
 ### Document as you go
 
 If you introduce a new framework or dependency, add the necessary
-information to [INSTALL.md](INSTALL.md) and the other documentation.  In
-particular, if you add a new input to or output from the PSM, document
-it in the Interface Control Document, [ICD.md](docs/ICD.md).
+information to [INSTALL.md](INSTALL.md) and the other documentation.
 
 ### Migrations
 
 Section TBD
+
+### Linting and Code Style
+
+We're using ESLint to make sure that code is consistent.  Please be sure to lint before you commit, since we want only the BEST most PRISTINE commits in our repository.
+
+You can lint by typing `yarn lint` in your CLI.  Then you cry as you see all the things you did wrong. Oh, also, no semicolons please.
 
 ### The "Obvious Fix" rule: committing some minor changes directly to 'master'
 
