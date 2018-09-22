@@ -11,13 +11,20 @@ install a more recent version of [Node](https://nodejs.org/en/).
 
 2. Ensure that [yarn](https://yarnpkg.com/lang/en/docs/install/) is installed as well; these instructions use yarn.
 
-3. Install packages:
+3. Set up your config
+
+```
+$> cp .env.template .env
+$> vi .env
+```
+
+4. Install packages:
 
 ```
 $> yarn install
 ```
 
-4. Start the server
+5. Start the server
 
 ```
 $> yarn install
