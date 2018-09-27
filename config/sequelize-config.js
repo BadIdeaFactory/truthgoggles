@@ -3,7 +3,7 @@ dotenv.config();
 
 module.exports = {
   "development": {
-    "url": process.env.DATABASE_URL_DEV || "",
+    "url": process.env.DATABASE_URL_DEVELOPMENT || "",
     "dialect": "postgres",
     "operatorsAliases": false
   },
@@ -13,7 +13,7 @@ module.exports = {
     "operatorsAliases": false
   },
   "production": {
-    "url": process.env.DATABASE_URL_PROD || "",
+    "url": process.env.DATABASE_URL_PRODUCTION || "",
     "dialect": "postgres",
     "operatorsAliases": false
   }
