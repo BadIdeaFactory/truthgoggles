@@ -1,7 +1,7 @@
 import { GraphQLObjectType } from 'graphql'
 
 // App Imports
-import * as example from './examples/fields/mutations'
+import * as credibleContent from './crediblecontents/fields/mutations'
 
 // Compile into a single export
 const mutation = new GraphQLObjectType({
@@ -9,7 +9,7 @@ const mutation = new GraphQLObjectType({
   description: '...',
 
   fields: {
-    ...example,
+    ...credibleContent,
   },
 })
 
