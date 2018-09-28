@@ -1,7 +1,7 @@
 import { GraphQLObjectType } from 'graphql'
 
 // App Imports
-import * as example from './examples/fields/query'
+import * as credibleContent from './crediblecontents/fields/query'
 
 // Compile into a single export
 const query = new GraphQLObjectType({
@@ -9,7 +9,7 @@ const query = new GraphQLObjectType({
   description: '...',
 
   fields: {
-    ...example,
+    ...credibleContent,
   },
 })
 
