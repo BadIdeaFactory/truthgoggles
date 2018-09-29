@@ -11,6 +11,8 @@
     "pg": "^7.4.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2",
     "sequelize": "^4.38.1"
   },
   "scripts": {
