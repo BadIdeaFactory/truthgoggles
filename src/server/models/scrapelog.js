@@ -6,5 +6,8 @@ module.exports = (sequelize, DataTypes) => {
   ScrapeLog.associate = function(models) {
     // associations can be defined here
   };
+  ScrapeLog.ScraperTypes = {
+    SHARE_THE_FACTS: "shareTheFacts",
+  }
   return ScrapeLog;
 };

@@ -7,7 +7,7 @@ module.exports = {
       type: Sequelize.INTEGER,
     },
     base_url: {
-      type: Sequelize.STRING,
+      type: Sequelize.TEXT,
     },
     title: {
       type: Sequelize.STRING,
@@ -20,6 +20,9 @@ module.exports = {
     },
     body: {
       type: Sequelize.TEXT,
+    },
+    scrape_status: {
+      type: Sequelize.STRING,
     },
     createdAt: {
       allowNull: false,
