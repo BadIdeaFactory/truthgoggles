@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     author: DataTypes.STRING,
     publication: DataTypes.STRING,
-    body: DataTypes.STRING,
+    body: DataTypes.TEXT,
   }, {})
   CredibleContent.associate = function () {
     // associations can be defined here
