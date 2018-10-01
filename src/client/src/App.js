@@ -13,6 +13,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import withRoot from './withRoot';
+import samples from './samples';
 
 const styles = theme => ({
   layout: {
@@ -81,8 +82,8 @@ const post1 = `<h3>This is post1</h3>
 const post2 = "This is post2"
 const post3 = "This is post3"
 
-const   sections = [ 'Thing1', 'Thing2' ];
-const posts = [post1, post2, post3];
+const sections = [ 'Thing1', 'Thing2' ];
+const posts = samples; //[post1, post2, post3];
 const social = ['GitHub', 'Twitter', 'Facebook'];
 
 const archives = [
@@ -151,13 +152,16 @@ class App extends Component {
                 </Typography>
                 <Divider />
                 {posts.map(post => (
-                  <Typography>
-                    <div dangerouslySetInnerHTML={{__html: post}}></div>
-                  </Typography>
+                  <div>
+                    <Typography>
+                      <div dangerouslySetInnerHTML={{__html: post.body}}></div>
+                    </Typography>
+                    <Divider></Divider>
+                  </div>
                 ))}
               </Grid>
               {/* End main content */}
-              {/* Sidebar */}
+              {/* Sidebar}
               <Grid item xs={12} md={4}>
                 <Paper elevation={0} className={classes.sidebarAboutBox}>
                   <Typography variant="title" gutterBottom>
@@ -181,7 +185,7 @@ class App extends Component {
                   <Typography key={network}>{network}</Typography>
                 ))}
               </Grid>
-              {/* End sidebar */}
+              { End sidebar */}
             </Grid>
           </main>
         </div>
