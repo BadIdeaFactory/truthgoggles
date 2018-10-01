@@ -14,6 +14,9 @@ import {
 } from '@material-ui/core';
 import withRoot from './withRoot';
 import samples from './samples';
+import unified from 'unified';
+import parse from 'rehype-parse';
+import stringify from 'rehype-stringify';
 
 const styles = theme => ({
   layout: {
@@ -75,15 +78,27 @@ const styles = theme => ({
   },
 });
 
-const post1 = `<h3>This is post1</h3>
-<p>Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents…</p>
-<p>Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents…</p>
-`
-const post2 = "This is post2"
-const post3 = "This is post3"
-
 const sections = [ 'Thing1', 'Thing2' ];
-const posts = samples; //[post1, post2, post3];
+const posts = samples.map((post) => { return post.body; });
+/*
+// Going to need to make the entire render function asynchronous
+// in order to accommodate async behavior on the part of
+// the processor.
+//
+// Which is fine, since we have to do that to fetch data from the API anyway.
+let processHTML = async (body) => {
+  let processor = unified().use(parse).use(stringify);
+  return processor.process(body);
+}
+const postPromises = samples.map(async (post) => {
+  let result = await processHTML(post.body);
+  //console.log(result);
+  return result;
+});
+const postResults = Promise.all(postPromises); 
+const posts = postResults.map((result)=> { return result.PromiseValue; });
+*/
+
 const social = ['GitHub', 'Twitter', 'Facebook'];
 
 const archives = [
@@ -154,7 +169,7 @@ class App extends Component {
                 {posts.map(post => (
                   <div>
                     <Typography>
-                      <div dangerouslySetInnerHTML={{__html: post.body}}></div>
+                      <div dangerouslySetInnerHTML={{__html: post}}></div>
                     </Typography>
                     <Divider></Divider>
                   </div>
