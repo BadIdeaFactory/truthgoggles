@@ -74,7 +74,10 @@ const styles = theme => ({
   },
 });
 
-const post1 = "This is post1"
+const post1 = `<h3>This is post1</h3>
+<p>Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents…</p>
+<p>Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents…</p>
+`
 const post2 = "This is post2"
 const post3 = "This is post3"
 
@@ -149,7 +152,7 @@ class App extends Component {
                 <Divider />
                 {posts.map(post => (
                   <Typography>
-                    {post}
+                    <div dangerouslySetInnerHTML={{__html: post}}></div>
                   </Typography>
                 ))}
               </Grid>
