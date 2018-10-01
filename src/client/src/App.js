@@ -1,45 +1,178 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import PropTypes from 'prop-types';
 import './App.css';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-import { Grid, CssBaseline } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import { 
+  AppBar, 
+  Button,
+  Divider,
+  Grid, 
+  Hidden,
+  Paper, 
+  Toolbar,
+  Typography,
+} from '@material-ui/core';
+import withRoot from './withRoot';
+
+const styles = theme => ({
+  layout: {
+    width: 'auto',
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
+      width: 1100,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+  },
+  toolbarMain: {
+    borderBottom: `1px solid ${theme.palette.grey[300]}`,
+  },
+  toolbarTitle: {
+    flex: 1,
+  },
+  toolbarSecondary: {
+    justifyContent: 'space-between',
+  },
+  mainFeaturedPost: {
+    backgroundColor: theme.palette.grey[800],
+    color: theme.palette.common.white,
+    marginBottom: theme.spacing.unit * 4,
+  },
+  mainFeaturedPostContent: {
+    padding: `${theme.spacing.unit * 6}px`,
+    [theme.breakpoints.up('md')]: {
+      paddingRight: 0,
+    },
+  },
+  mainGrid: {
+    marginTop: theme.spacing.unit * 3,
+  },
+  card: {
+    display: 'flex',
+  },
+  cardDetails: {
+    flex: 1,
+  },
+  cardMedia: {
+    width: 160,
+  },
+  markdown: {
+    padding: `${theme.spacing.unit * 3}px 0`,
+  },
+  sidebarAboutBox: {
+    padding: theme.spacing.unit * 2,
+    backgroundColor: theme.palette.grey[200],
+  },
+  sidebarSection: {
+    marginTop: theme.spacing.unit * 3,
+  },
+  footer: {
+    backgroundColor: theme.palette.background.paper,
+    marginTop: theme.spacing.unit * 8,
+    padding: `${theme.spacing.unit * 6}px 0`,
+  },
+});
+
+const   sections = [ 'Thing1', 'Thing2' ];
 
 class App extends Component {
+
   render() {
+    const { classes } = this.props;
+
     return (
       <React.Fragment>
-        <CssBaseline/>
-        <Grid container spacing={16}>
-          <Grid item xs={2}>
-            <Paper>
-              <Button variant="raised" color="primary">
-                Hello World
-              </Button>
+
+        <div className={classes.layout}>
+          <Toolbar className={classes.toolbarMain}>
+            <Typography
+              component="h2"
+              variant="headline"
+              color="inherit"
+              align="center"
+              noWrap
+              className={classes.toolbarTitle}
+              >
+              Terminologist
+            </Typography>
+          </Toolbar>
+          <Toolbar variant="dense" className={classes.toolbarSecondary}>
+            {sections.map(section => (
+              <Typography color="inherit" noWrap key={section}>
+                {section}
+              </Typography>
+            ))}
+          </Toolbar>
+          <main>
+            <Paper className={classes.mainFeaturedPost}>
+              <Grid container>
+                <Grid item md={6}>
+                  <div className={classes.mainFeaturedPostContent}>
+                    <Typography variant="display2" color="inherit" gutterBottom>
+                      Loaded Language
+                    </Typography>
+                    <Typography variant="headline" color="inherit" paragraph>
+                      Multiple lines of text that form the lede, informing new readers quickly and
+                      efficiently about what&apos;s most interesting in this post&apos;s contents…
+                    </Typography>
+                  </div>
+                </Grid>
+              </Grid>
             </Paper>
-          </Grid>
-          <Grid item xs={2}>
-            <Paper>
-              Hey this is just some text
-            </Paper>
-          </Grid>
-        </Grid>
+            <Grid container spacing={40} className={classes.mainGrid}>
+              {/* Main content */}
+              <Grid item xs={12} md={8}>
+                <Typography variant="title" gutterBottom>
+                  From the Firehose
+                </Typography>
+                <Divider />
+                {posts.map(post => (
+                  <Markdown className={classes.markdown} key={post.substring(0, 40)}>
+                    {post}
+                  </Markdown>
+                ))}
+              </Grid>
+              {/* End main content */}
+              {/* Sidebar */}
+              <Grid item xs={12} md={4}>
+                <Paper elevation={0} className={classes.sidebarAboutBox}>
+                  <Typography variant="title" gutterBottom>
+                    About
+                  </Typography>
+                  <Typography>
+                    Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit
+                    amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+                  </Typography>
+                </Paper>
+                <Typography variant="title" gutterBottom className={classes.sidebarSection}>
+                  Archives
+                </Typography>
+                {archives.map(archive => (
+                  <Typography key={archive}>{archive}</Typography>
+                ))}
+                <Typography variant="title" gutterBottom className={classes.sidebarSection}>
+                  Social
+                </Typography>
+                {social.map(network => (
+                  <Typography key={network}>{network}</Typography>
+                ))}
+              </Grid>
+              {/* End sidebar */}
+            </Grid>
+          </main>
+        </div>
+        <footer className={classes.footer}>
+          <Typography variant="title" align="center" gutterBottom>
+            Footer
+          </Typography>
+          <Typography variant="subheading" align="center" color="textSecondary" component="p">
+            Something here to give the footer a purpose!
+          </Typography>
+        </footer>
       </React.Fragment>
     );  
-    /*
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-    */
   }
 }
 
-export default App;
+export default withRoot(withStyles(styles)(App));
