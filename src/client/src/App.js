@@ -74,7 +74,28 @@ const styles = theme => ({
   },
 });
 
+const post1 = "This is post1"
+const post2 = "This is post2"
+const post3 = "This is post3"
+
 const   sections = [ 'Thing1', 'Thing2' ];
+const posts = [post1, post2, post3];
+const social = ['GitHub', 'Twitter', 'Facebook'];
+
+const archives = [
+  'March 2020',
+  'February 2020',
+  'January 2020',
+  'December 2019',
+  'November 2019',
+  'October 2019',
+  'September 2019',
+  'August 2019',
+  'July 2019',
+  'June 2019',
+  'May 2019',
+  'April 2019',
+];
 
 class App extends Component {
 
@@ -83,7 +104,6 @@ class App extends Component {
 
     return (
       <React.Fragment>
-
         <div className={classes.layout}>
           <Toolbar className={classes.toolbarMain}>
             <Typography
@@ -128,9 +148,9 @@ class App extends Component {
                 </Typography>
                 <Divider />
                 {posts.map(post => (
-                  <Markdown className={classes.markdown} key={post.substring(0, 40)}>
+                  <Typography>
                     {post}
-                  </Markdown>
+                  </Typography>
                 ))}
               </Grid>
               {/* End main content */}
