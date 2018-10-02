@@ -1,0 +1,27 @@
+{
+  "name": "truthgoggleslinter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "lodash.difference": "^4.5.0",
+    "lodash.intersection": "^4.4.0",
+    "lowdash": "^1.2.0",
+    "nlcst-search": "^1.5.0",
+    "object-keys": "^1.0.12",
+    "pluralize": "^7.0.0",
+    "polibiased": "^1.0.0",
+    "quotation": "^1.1.1",
+    "retext-english": "^3.0.0",
+    "retext-stringify": "^2.0.0",
+    "to-vfile": "^5.0.1",
+    "unified": "^7.0.0",
+    "vfile-reporter": "^5.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Truth Goggles",
+  "license": "MIT"
+}

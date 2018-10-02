@@ -15,8 +15,14 @@ import {
 import withRoot from './withRoot';
 import samples from './samples';
 import unified from 'unified';
-import parse from 'rehype-parse';
-import stringify from 'rehype-stringify';
+import vfile from 'to-vfile';
+import report from 'vfile-reporter';
+import english from 'retext-english';
+import stringify from 'retext-stringify';
+
+//* Uncertain right now if require or import should be used
+var tglinter = require('./TGLinter/index.js')
+
 
 const styles = theme => ({
   layout: {
@@ -80,7 +86,15 @@ const styles = theme => ({
 
 const sections = [ 'Thing1', 'Thing2' ];
 const posts = samples.map((post) => { return post.body; });
+
 /*
+// Carolyn's partial thoughts: 
+    -->Needs to be done async (rendering); 
+    --> initial load and then wait for data to be processed then swap out elements
+    --> unprocessed data with processed data
+    --> highlight wrap in spans
+
+//Ted's thoughts/comments:
 // Going to need to make the entire render function asynchronous
 // in order to accommodate async behavior on the part of
 // the processor.
@@ -174,6 +188,8 @@ class App extends Component {
                     <Divider></Divider>
                   </div>
                 ))}
+
+
               </Grid>
               {/* End main content */}
               {/* Sidebar}
