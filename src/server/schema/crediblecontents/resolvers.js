@@ -6,8 +6,12 @@ export async function getById(parentValue, { id }) {
 }
 
 // Get all credible contents
-export async function getAll() {
-  return models.CredibleContent.findAll()
+export async function getAll(parentValue, { scrape_status }) {
+  return models.CredibleContent.findAll({
+    where: {
+      scrape_status: scrape_status
+    },
+  })
 }
 
 // Create credible content
@@ -17,6 +21,7 @@ export async function create(parentValue, {
   author,
   publication,
   body,
+  scrapeStatus,
 }) {
   return models.CredibleContent.create({
     baseUrl,
@@ -24,6 +29,7 @@ export async function create(parentValue, {
     author,
     publication,
     body,
+    scrapeStatus,
   })
 }
 

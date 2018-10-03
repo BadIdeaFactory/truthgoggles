@@ -28,6 +28,10 @@ export const credibleContentCreate = {
       name: 'body',
       type: GraphQLString,
     },
+    scrape_status: {
+      name: 'scrape_status',
+      type: GraphQLString,
+    },
   },
   resolve: create,
 }

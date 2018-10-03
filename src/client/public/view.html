@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.18/datatables.min.css"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
+  <script type="text/javascript" src="js/goggles-language.js"></script>
+  <title>TGLinter</title>
+  <script type="text/javascript">
+
+    $(function() {
+      let urlParams = new URLSearchParams(window.location.search);
+      let id = urlParams.get('id');
+      $.ajax({
+        type: "GET",
+        url: "/graphql?query=query AllContent { credibleContent (id: " + id + ") { id, title, publication, body } } ",
+        success: function(response) {
+          $("#content").html(response.data.credibleContent.body);
+          $("#content").goggles();
+        }
+      });
+    });
+
+  </script>
+</head>
+<body>
+  <div id="content"></div>
+</body>
+</html>

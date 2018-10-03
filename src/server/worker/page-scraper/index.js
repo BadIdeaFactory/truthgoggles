@@ -45,6 +45,7 @@ async function scrapeNext() {
     credibleContent.scrape_status = models.CredibleContent.ScrapeStatuses.ERROR
   }
   credibleContent.save()
+  setTimeout(scrapeNext, 4000)
 }
 
 function parsePolitiFact($) {
@@ -55,7 +56,7 @@ function parsePolitiFact($) {
 }
 function parseFactCheck($) {
   return {
-    title: "",
+    title: $(".entry-title").text(),
     body: $(".entry-content").text(),
   }
 }

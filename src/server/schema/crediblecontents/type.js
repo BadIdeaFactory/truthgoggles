@@ -11,6 +11,7 @@ const CredibleContentType = new GraphQLObjectType({
     author: { type: GraphQLString },
     publication: { type: GraphQLString },
     body: { type: GraphQLString },
+    scrape_status: { type: GraphQLString },
     createdAt: { type: GraphQLString },
     updatedAt: { type: GraphQLString },
   }),

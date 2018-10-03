@@ -1,4 +1,4 @@
-import { GraphQLInt, GraphQLList } from 'graphql'
+import { GraphQLString, GraphQLInt, GraphQLList } from 'graphql'
 
 // App Imports
 import CredibleContentType from '../type'
@@ -6,6 +6,9 @@ import { getAll, getById } from '../resolvers'
 
 export const credibleContents = {
   type: new GraphQLList(CredibleContentType),
+  args: {
+    scrape_status: { type: GraphQLString },
+  },
   resolve: getAll,
 }
 
