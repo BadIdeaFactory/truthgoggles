@@ -13,7 +13,9 @@ class App extends React.Component {
     articleText: "",
     flaggedPhrases: [],
     selectedPhrase: {},
-    flagToggleState: false
+    flagToggleState: false,
+    aboutToggleState: false,
+    reviewToggleState: false,
   }
 
   setArticleText = (articleText) => {
@@ -32,14 +34,24 @@ class App extends React.Component {
     this.setState({ flagToggleState })
   }
 
-  startNewDocument = () => {}
+  setAboutToggleState = (aboutToggleState) => {
+    this.setState({ aboutToggleState })
+  }
+
+  setReviewToggleState = (reviewToggleState) => {
+    this.setState({ reviewToggleState })
+  }
+
+  startNewDocument = () => {
+  }
 
   render() {
     const {
       articleText,
       flaggedPhrases,
       selectedPhrase,
-      flagToggleState
+      flagToggleState,
+      aboutToggleState,
     } = this.state
 
     return (
@@ -48,6 +60,8 @@ class App extends React.Component {
           <div id="main">
             <Header
               startNewDocument={this.startNewDocument}
+              setAboutToggleState={this.setAboutToggleState}
+              setReviewToggleState={this.setReviewToggleState}
             />
             <Route
               path="/"
@@ -67,8 +81,10 @@ class App extends React.Component {
               flaggedPhrases={flaggedPhrases}
               selectedPhrase={selectedPhrase}
               flagToggleState={flagToggleState}
+              aboutToggleState={aboutToggleState}
               setFlagToggleState={this.setFlagToggleState}
               setSelectedPhrase={this.setSelectedPhrase}
+              setAboutToggleState={this.setAboutToggleState}
             />
           </div>
         </BrowserRouter>

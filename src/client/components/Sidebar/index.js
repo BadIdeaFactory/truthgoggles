@@ -13,7 +13,9 @@ class Sidebar extends React.Component {
   static propTypes = {
     flaggedPhrases: PropTypes.array,
     selectedPhrase: phraseType,
+    aboutToggleState: PropTypes.bool,
     flagToggleState: PropTypes.bool,
+    setAboutToggleState: PropTypes.func,
     setFlagToggleState: PropTypes.func,
     setSelectedPhrase: PropTypes.func,
   }
@@ -22,10 +24,21 @@ class Sidebar extends React.Component {
     const {
       flagToggleState,
       selectedPhrase,
-      flaggedPhrases
+      flaggedPhrases,
+      aboutToggleState,
+      setAboutToggleState,
     } = this.props
-    if (flagToggleState === false) {
-      return (<InstructionPane />)
+
+    if (aboutToggleState === true) {
+      return (
+        <AboutPane
+          setAboutToggleState={setAboutToggleState}
+        />
+      )
+    } else if (flagToggleState === false) {
+      return (
+        <InstructionPane />
+      )
     } else if (selectedPhrase != null) {
       return (
         <DetailPane
