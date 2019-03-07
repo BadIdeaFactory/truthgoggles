@@ -18,8 +18,30 @@ class App extends React.Component {
     reviewToggleState: false,
   }
 
+  getFlaggedPhrases(sourceText) {
+    const { articleText } = this.state
+
+    // Eventually this will be an API call.
+    // Until then we simulate with a promise.
+    return new Promise((resolve, reject) => {
+      const flaggedPhrases = [
+        {
+          id: 0,
+          text: "pants",
+          dCount: Math.random() * 100,
+          rCount: Math.random() * 100,
+        }
+      ]
+      resolve(flaggedPhrases)
+    })
+  }
+
   setArticleText = (articleText) => {
     this.setState({ articleText })
+    this.getFlaggedPhrases(articleText)
+      .then((flaggedPhrases) => {
+        this.setFlaggedPhrases(flaggedPhrases)
+      })
   }
 
   setFlaggedPhrases = (flaggedPhrases) => {
