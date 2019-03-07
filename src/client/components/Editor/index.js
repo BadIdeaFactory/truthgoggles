@@ -4,6 +4,7 @@ import reactStringReplace from'react-string-replace'
 
 // App imports
 import { phraseType } from '../../types'
+import FlaggedPhrase from './FlaggedPhrase'
 
 class Editor extends React.Component {
 
@@ -23,12 +24,21 @@ class Editor extends React.Component {
   }
 
   insertFlaggedPhrases = (text, phrase) => {
+    const {
+      selectedPhrase,
+      setSelectedPhrase,
+    } = this.props
     const needle = phrase.text
     const processedText = reactStringReplace(
       text,
       needle,
       (match, i) => (
-        <strong key={match+i}>{phrase.text}</strong>
+        <FlaggedPhrase
+          key={match+i}
+          phrase={phrase}
+          setSelectedPhrase={setSelectedPhrase}
+          selectedPhrase={selectedPhrase}
+        />
       )
     )
     return processedText
