@@ -15,6 +15,7 @@
     "react-datepicker": "^2.1.0",
     "react-dom": "^16.0.0",
     "react-router-dom": "^4.3.1",
+    "react-string-replace": "^0.4.1",
     "sequelize": "^4.38.1"
   },
   "scripts": {

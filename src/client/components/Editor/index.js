@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import reactStringReplace from'react-string-replace'
 
 // App imports
 import { phraseType } from '../../types'
@@ -21,6 +22,33 @@ class Editor extends React.Component {
     setArticleText(newText)
   }
 
+  insertFlaggedPhrases = (text, phrase) => {
+    const needle = phrase.text
+    const processedText = reactStringReplace(
+      text,
+      needle,
+      (match, i) => (
+        <strong key={match+i}>{phrase.text}</strong>
+      )
+    )
+    return processedText
+  }
+
+  generateFlaggedText = () => {
+    const {
+      articleText,
+      flaggedPhrases,
+    } = this.props
+
+    let modifiedText = articleText
+    flaggedPhrases.map((phrase) => {
+      modifiedText = this.insertFlaggedPhrases(modifiedText, phrase)
+    })
+
+    return modifiedText
+  }
+
+
   render() {
     const {
       articleText,
@@ -29,7 +57,11 @@ class Editor extends React.Component {
     return (
       <>
         <div>
+          <div>
+            {this.generateFlaggedText()}
+          </div>
           <textarea
+
             value={articleText}
             onChange={this.handleChangeEvent}
           />
