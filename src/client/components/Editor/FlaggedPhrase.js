@@ -9,7 +9,7 @@ import { calculatePhraseColor } from '../../helpers'
 const PhraseWrapper = styled.mark`
   background: ${props => calculatePhraseColor(props.phrase)};
   cursor: pointer;
-  color: black;
+  color: transparent;
   margin: 0px;
   padding: 0px;
 `

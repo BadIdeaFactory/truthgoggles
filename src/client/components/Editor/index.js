@@ -40,7 +40,7 @@ const Backdrop = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  margin: 2px;
+  margin: 0px;
   box-sizing: border-box;
 `
 
@@ -48,12 +48,11 @@ const Highlights = styled.div`
   white-space: pre-wrap;
   word-wrap: break-word;
   color: black;
-  padding: 10px;
+  padding: 12px;
   position: absolute;
   width: 100%;
   box-sizing: border-box;
   letter-spacing: 1px;
-  padding-bottom: 100px;
 `
 
 class Editor extends React.Component {
@@ -78,6 +77,37 @@ class Editor extends React.Component {
     window.requestAnimationFrame(() => {
       this.refs.backdrop.scrollTop = scrollTop
     })
+  }
+
+  handleCursorChange = (event) => {
+    const cursorLocation = event.target.selectionStart
+    const { setSelectedPhrase } = this.props
+    const selectedPhrase = this.getSelectedPhraseByIndex(cursorLocation)
+    setSelectedPhrase(selectedPhrase)
+  }
+
+  getSelectedPhraseByIndex = (index) => {
+    const {
+      flaggedPhrases,
+      articleText,
+    } = this.props
+    const haystack = articleText.toLowerCase()
+    let selectedPhrase = null
+
+    // See if the cursor hits an instance of a phrase
+    flaggedPhrases.map((phrase) => {
+      const needle = phrase.text.toLowerCase()
+      const re = new RegExp(needle,'gi');
+      while (selectedPhrase == null
+        && re.exec(haystack)) {
+        if(index > re.lastIndex - needle.length
+        && index < re.lastIndex) {
+          selectedPhrase = phrase
+        }
+      }
+    })
+
+    return selectedPhrase
   }
 
   insertFlaggedPhrases = (text, phrase) => {
@@ -137,6 +167,9 @@ class Editor extends React.Component {
             value={articleText}
             onChange={this.handleChangeEvent}
             onScroll={this.handleScrollEvent}
+            onClick={this.handleCursorChange}
+            onFocus={this.handleCursorChange}
+            onKeyUp={this.handleCursorChange}
           />
         </EditorWrapper>
       </>
