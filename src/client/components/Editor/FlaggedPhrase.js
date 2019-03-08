@@ -9,6 +9,9 @@ import { calculatePhraseColor } from '../../helpers'
 const PhraseWrapper = styled.mark`
   background: ${props => calculatePhraseColor(props.phrase)};
   cursor: pointer;
+  color: black;
+  margin: 0px;
+  padding: 0px;
 `
 
 class FlaggedPhrase extends React.Component {
@@ -16,6 +19,7 @@ class FlaggedPhrase extends React.Component {
     setSelectedPhrase: PropTypes.func,
     selectedPhrase: phraseType,
     phrase: phraseType,
+    text: PropTypes.string
   }
 
   closeAboutPane = () => {
@@ -28,12 +32,14 @@ class FlaggedPhrase extends React.Component {
       setSelectedPhrase,
       phrase,
     } = this.props
+
+    alert(phrase)
     setSelectedPhrase(phrase)
   }
 
   render() {
-    const { phrase } = this.props
-    const { text, dCount, rCount } = phrase
+    const { phrase, text } = this.props
+    const { dCount, rCount } = phrase
     const totalCount = phrase.dCount + phrase.rCount
     const saturation = phrase.dCount / totalCount
     return (
@@ -42,7 +48,7 @@ class FlaggedPhrase extends React.Component {
           phrase={phrase}
           onClick={this.handleClick}
         >
-          { phrase.text }
+          { text }
         </PhraseWrapper>
       </>
     )

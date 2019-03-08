@@ -5564,7 +5564,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.4, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.4, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.x:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -5719,7 +5719,7 @@ react-datepicker@^2.1.0:
     react-onclickoutside "^6.7.1"
     react-popper "^1.0.2"
 
-"react-dom@>= 16.3.0":
+"react-dom@0.14.x || 15.x || 16.x":
   version "16.8.4"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.4.tgz#1061a8e01a2b3b0c8160037441c3bf00a0e3bc48"
   integrity sha512-Ob2wK7XG2tUDt7ps7LtLzGYYB6DXMCLj0G5fO6WeEICtT4/HdpOi7W/xLzZnR6RCG1tYza60nMdqtxzA8FaPJQ==
@@ -5781,6 +5781,11 @@ react-router@^4.3.1:
     prop-types "^15.6.1"
     warning "^4.0.1"
 
+react-scroll-sync@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/react-scroll-sync/-/react-scroll-sync-0.7.0.tgz#935387b2b877dcc7032ad9410155b0b7d7951048"
+  integrity sha512-PL4MWceh596EA+z5zLPYYB7HfctjShh+XTOZ5FgZnxwA66g1Fnx0kK0DMjma23cqlhXBvYLA7Fnp67afzBwdHA==
+
 react-string-replace@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/react-string-replace/-/react-string-replace-0.4.1.tgz#024c6ac0a91163ecae439a1b197d3e1660c98c0d"
@@ -5788,7 +5793,7 @@ react-string-replace@^0.4.1:
   dependencies:
     lodash "^4.17.4"
 
-"react@>= 16.3.0":
+"react@0.14.x || 15.x || 16.x":
   version "16.8.4"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.4.tgz#fdf7bd9ae53f03a9c4cd1a371432c206be1c4768"
   integrity sha512-0GQ6gFXfUH7aZcjGVymlPOASTuSjlQL4ZtVC5YKH+3JL6bBLCVO21DknzmaPlI90LN253ojj02nsapy+j7wIjg==

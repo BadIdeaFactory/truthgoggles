@@ -1,10 +1,60 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import reactStringReplace from'react-string-replace'
+import { ScrollSync, ScrollSyncPane} from 'react-scroll-sync'
 
 // App imports
 import { phraseType } from '../../types'
 import FlaggedPhrase from './FlaggedPhrase'
+
+const EditorWrapper = styled.div`
+  border: 5px double black;
+  -moz-box-shadow:    inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow:         inset 0 0 10px #000000;
+  width: 500px;
+  height: 500px;
+  box-sizing: border-box;
+  position: relative;
+`
+
+const EditorTextArea = styled.textarea`
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 0;
+  background-color: transparent;
+  z-index: 2;
+  padding: 10px;
+  position: absolute;
+  box-sizing: border-box;
+  display: block;
+  resize: none;
+  letter-spacing: 1px;
+`
+
+const Backdrop = styled.div`
+  overflow: auto;
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 2px;
+  box-sizing: border-box;
+`
+
+const Highlights = styled.div`
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: black;
+  padding: 10px;
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  padding-bottom: 100px;
+`
 
 class Editor extends React.Component {
 
@@ -23,19 +73,28 @@ class Editor extends React.Component {
     setArticleText(newText)
   }
 
+  handleScrollEvent = (event) => {
+    const { scrollTop } = event.target
+    window.requestAnimationFrame(() => {
+      this.refs.backdrop.scrollTop = scrollTop
+    })
+  }
+
   insertFlaggedPhrases = (text, phrase) => {
     const {
       selectedPhrase,
       setSelectedPhrase,
     } = this.props
     const needle = phrase.text
+    const cleanedText = text.replace(/\n$/g, '\n\n')
     const processedText = reactStringReplace(
-      text,
+      cleanedText,
       needle,
       (match, i) => (
         <FlaggedPhrase
           key={match+i}
           phrase={phrase}
+          text={match}
           setSelectedPhrase={setSelectedPhrase}
           selectedPhrase={selectedPhrase}
         />
@@ -64,18 +123,22 @@ class Editor extends React.Component {
       articleText,
       setArticleText,
     } = this.props
+
     return (
       <>
-        <div>
-          <div>
-            {this.generateFlaggedText()}
-          </div>
-          <textarea
-
+        <EditorWrapper>
+          <Backdrop
+            ref="backdrop">
+            <Highlights>
+              {this.generateFlaggedText()}
+            </Highlights>
+          </Backdrop>
+          <EditorTextArea
             value={articleText}
             onChange={this.handleChangeEvent}
+            onScroll={this.handleScrollEvent}
           />
-        </div>
+        </EditorWrapper>
       </>
     )
   }
