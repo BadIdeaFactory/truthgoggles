@@ -5781,11 +5781,6 @@ react-router@^4.3.1:
     prop-types "^15.6.1"
     warning "^4.0.1"
 
-react-scroll-sync@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/react-scroll-sync/-/react-scroll-sync-0.7.0.tgz#935387b2b877dcc7032ad9410155b0b7d7951048"
-  integrity sha512-PL4MWceh596EA+z5zLPYYB7HfctjShh+XTOZ5FgZnxwA66g1Fnx0kK0DMjma23cqlhXBvYLA7Fnp67afzBwdHA==
-
 react-string-replace@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/react-string-replace/-/react-string-replace-0.4.1.tgz#024c6ac0a91163ecae439a1b197d3e1660c98c0d"
