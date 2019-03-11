@@ -2,7 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // App imports
+import NavigationItem from '../../Generic/NavigationItem'
 
+// Component
 class ReviewChangesButton extends React.Component {
   static propTypes = {
     setReviewToggleState: PropTypes.func.isRequired,
@@ -16,7 +18,7 @@ class ReviewChangesButton extends React.Component {
   render() {
     return (
       <>
-        <button onClick={this.showReviewInterface}>Review Changes</button>
+        <NavigationItem onClick={this.showReviewInterface}>Review Changes</NavigationItem>
       </>
     )
   }

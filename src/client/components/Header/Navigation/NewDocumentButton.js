@@ -2,7 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // App imports
+import NavigationItem from '../../Generic/NavigationItem'
 
+// Component
 class NewDocumentButton extends React.Component {
   static propTypes = {
     startNewDocument: PropTypes.func.isRequired,
@@ -17,7 +19,7 @@ class NewDocumentButton extends React.Component {
   render() {
     return (
       <>
-        <button onClick={this.showNewDocumentPrompt}>New Document</button>
+        <NavigationItem onClick={this.showNewDocumentPrompt}>New Document</NavigationItem>
       </>
     )
   }

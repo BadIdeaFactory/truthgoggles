@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 // App imports
 import {phraseType} from '../../types'
@@ -9,6 +10,14 @@ import AboutPane from './AboutPane'
 import InstructionPane from './InstructionPane'
 import ListPane from './ListPane'
 
+// Styles
+const PaneWrapper = styled.div`
+  padding: 40px;
+  width: 30%;
+  height: 100%;
+`
+
+// Component
 class Sidebar extends React.Component {
   static propTypes = {
     flaggedPhrases: PropTypes.array,
@@ -55,9 +64,9 @@ class Sidebar extends React.Component {
   render() {
     return (
       <>
-        <div>
+        <PaneWrapper>
           { this.renderActivePane() }
-        </div>
+        </PaneWrapper>
       </>
     )
   }
