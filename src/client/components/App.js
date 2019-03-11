@@ -9,17 +9,25 @@ import Sidebar from './Sidebar'
 import Editor from './Editor'
 
 // Styles
+const AppWrapper = styled.div`
+`
+
 const HeaderWrapper = styled.div`
   margin: 70px 40px;
+  margin-bottom: 25px;
 `
 
 const BodyWrapper = styled.div`
+  margin: 0px 40px;
+  display: flex;
 `
 
 const EditorWrapper = styled.div`
+  width: 70%;
 `
 
 const SidebarWrapper = styled.div`
+  width: 30%;
 `
 
 // Component
@@ -94,7 +102,7 @@ class App extends React.Component {
     return (
       <>
         <BrowserRouter>
-          <div id="main">
+          <AppWrapper id="main">
             <HeaderWrapper>
               <Header
                 startNewDocument={this.startNewDocument}
@@ -125,7 +133,7 @@ class App extends React.Component {
                 />
               </SidebarWrapper>
             </BodyWrapper>
-          </div>
+          </AppWrapper>
         </BrowserRouter>
       </>
     )
