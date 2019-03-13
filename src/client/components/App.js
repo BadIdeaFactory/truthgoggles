@@ -1,11 +1,31 @@
 // Imports
 import React from 'react'
-import { Link, Route, BrowserRouter } from 'react-router-dom'
+import styled from 'styled-components'
 
 // App Imports
 import Header from './Header'
 import Sidebar from './Sidebar'
 import Editor from './Editor'
+
+// Styles
+
+const HeaderWrapper = styled.div`
+  margin: 70px 40px;
+  margin-bottom: 25px;
+`
+
+const BodyWrapper = styled.div`
+  margin: 0px 40px;
+  display: flex;
+`
+
+const EditorWrapper = styled.div`
+  width: 70%;
+`
+
+const SidebarWrapper = styled.div`
+  width: 30%;
+`
 
 // Component
 class App extends React.Component {
@@ -78,38 +98,38 @@ class App extends React.Component {
 
     return (
       <>
-        <BrowserRouter>
-          <div id="main">
+        <div id="main">
+          <HeaderWrapper>
             <Header
               startNewDocument={this.startNewDocument}
               setAboutToggleState={this.setAboutToggleState}
               setReviewToggleState={this.setReviewToggleState}
             />
-            <Route
-              path="/"
-              render={props => (
-                <Editor
-                  articleText={articleText}
-                  flaggedPhrases={flaggedPhrases}
-                  selectedPhrase={selectedPhrase}
-                  flagToggleState={flagToggleState}
-                  setSelectedPhrase={this.setSelectedPhrase}
-                  setArticleText={this.setArticleText}
-                  {...props}
-                />
-              )}
-            />
-            <Sidebar
-              flaggedPhrases={flaggedPhrases}
-              selectedPhrase={selectedPhrase}
-              flagToggleState={flagToggleState}
-              aboutToggleState={aboutToggleState}
-              setFlagToggleState={this.setFlagToggleState}
-              setSelectedPhrase={this.setSelectedPhrase}
-              setAboutToggleState={this.setAboutToggleState}
-            />
-          </div>
-        </BrowserRouter>
+          </HeaderWrapper>
+          <BodyWrapper>
+            <EditorWrapper>
+              <Editor
+                articleText={articleText}
+                flaggedPhrases={flaggedPhrases}
+                selectedPhrase={selectedPhrase}
+                flagToggleState={flagToggleState}
+                setSelectedPhrase={this.setSelectedPhrase}
+                setArticleText={this.setArticleText}
+              />
+            </EditorWrapper>
+            <SidebarWrapper>
+              <Sidebar
+                flaggedPhrases={flaggedPhrases}
+                selectedPhrase={selectedPhrase}
+                flagToggleState={flagToggleState}
+                aboutToggleState={aboutToggleState}
+                setFlagToggleState={this.setFlagToggleState}
+                setSelectedPhrase={this.setSelectedPhrase}
+                setAboutToggleState={this.setAboutToggleState}
+              />
+            </SidebarWrapper>
+          </BodyWrapper>
+        </div>
       </>
     )
   }

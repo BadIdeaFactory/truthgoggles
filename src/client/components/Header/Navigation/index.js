@@ -1,11 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 // App imports
 import AboutButton from './AboutButton'
 import NewDocumentButton from './NewDocumentButton'
 import ReviewChangesButton from './ReviewChangesButton'
 
+// Styles
+const NavigationWrapper = styled.div `
+  display: flex;
+  justify-content: flex-end;
+`
+
+// Component
 class Navigation extends React.Component {
   static propTypes = {
     setAboutToggleState: PropTypes.func.isRequired,
@@ -21,7 +29,7 @@ class Navigation extends React.Component {
     } = this.props
     return (
       <>
-        <div>
+        <NavigationWrapper>
           <ReviewChangesButton
             setReviewToggleState={setReviewToggleState}
           />
@@ -31,7 +39,7 @@ class Navigation extends React.Component {
           <AboutButton
             setAboutToggleState={setAboutToggleState}
           />
-        </div>
+        </NavigationWrapper>
       </>
     )
   }

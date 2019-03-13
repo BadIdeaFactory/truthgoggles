@@ -1,11 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 // App Imports
 import Branding from './Branding'
 import Navigation from './Navigation'
 
+// Styles
+const HeaderWrapper = styled.div `
+  display: flex;
+  justify-content: space-between;
+`
 
+// Component
 class Header extends React.Component {
   static propTypes = {
     startNewDocument: PropTypes.func.isRequired,
@@ -21,12 +28,14 @@ class Header extends React.Component {
     } = this.props
     return (
       <>
-        <Branding />
-        <Navigation
-          setAboutToggleState={setAboutToggleState}
-          startNewDocument={startNewDocument}
-          setReviewToggleState={setReviewToggleState}
-        />
+        <HeaderWrapper>
+          <Branding />
+          <Navigation
+            setAboutToggleState={setAboutToggleState}
+            startNewDocument={startNewDocument}
+            setReviewToggleState={setReviewToggleState}
+          />
+        </HeaderWrapper>
       </>
     )
   }

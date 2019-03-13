@@ -12,7 +12,7 @@ class Branding extends React.Component {
           <img
             alt="Truth Goggles: Language Checker"
             src={logo}
-            width="300"
+            width="200"
           />
         </div>
       </>

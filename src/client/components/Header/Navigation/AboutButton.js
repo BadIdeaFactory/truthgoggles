@@ -2,7 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // App imports
+import NavigationItem from '../../Generic/NavigationItem'
 
+// Component
 class AboutButton extends React.Component {
   static propTypes = {
     setAboutToggleState: PropTypes.func.isRequired,
@@ -17,7 +19,7 @@ class AboutButton extends React.Component {
   render() {
     return (
       <>
-        <button onClick={this.showAboutPane}>About</button>
+        <NavigationItem onClick={this.showAboutPane}>About</NavigationItem>
       </>
     )
   }

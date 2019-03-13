@@ -10,11 +10,11 @@ import FlaggedPhrase from './FlaggedPhrase'
 
 const EditorWrapper = styled.div`
   border: 5px double black;
-  -moz-box-shadow:    inset 0 0 10px #000000;
-  -webkit-box-shadow: inset 0 0 10px #000000;
-  box-shadow:         inset 0 0 10px #000000;
-  width: 500px;
-  height: 500px;
+  -moz-box-shadow:    inset 0 0 9px #9B9B9B;
+  -webkit-box-shadow: inset 0 0 9px #9B9B9B;
+  box-shadow:         inset 0 0 9px #9B9B9B;
+  width: 100%;
+  min-height: 500px;
   box-sizing: border-box;
   position: relative;
 `
@@ -32,6 +32,14 @@ const EditorTextArea = styled.textarea`
   display: block;
   resize: none;
   letter-spacing: 1px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  resize: none;
+  border: none;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  font-size: 21px;
 `
 
 const Backdrop = styled.div`
@@ -47,12 +55,15 @@ const Backdrop = styled.div`
 const Highlights = styled.div`
   white-space: pre-wrap;
   word-wrap: break-word;
-  color: black;
-  padding: 12px;
+  color: transparent;
+  padding: 10px;
   position: absolute;
   width: 100%;
   box-sizing: border-box;
   letter-spacing: 1px;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 300;
+  font-size: 21px;
 `
 
 class Editor extends React.Component {
