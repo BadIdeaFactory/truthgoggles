@@ -32,8 +32,8 @@ class App extends React.Component {
   state = {
     articleText: "",
     flaggedPhrases: [],
-    selectedPhrase: {},
-    flagToggleState: false,
+    selectedPhrase: null,
+    flagToggleState: true,
     aboutToggleState: false,
     reviewToggleState: false,
   }
@@ -50,7 +50,19 @@ class App extends React.Component {
           text: "pants",
           dCount: Math.random() * 100,
           rCount: Math.random() * 100,
-        }
+        },
+        {
+          id: 1,
+          text: "thinking face",
+          dCount: Math.random() * 100,
+          rCount: Math.random() * 100,
+        },
+        {
+          id: 2,
+          text: "emoji",
+          dCount: Math.random() * 100,
+          rCount: Math.random() * 100,
+        },
       ]
       resolve(flaggedPhrases)
     })
