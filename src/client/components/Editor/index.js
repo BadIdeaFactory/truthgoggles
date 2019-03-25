@@ -127,9 +127,8 @@ class Editor extends React.Component {
       setSelectedPhrase,
     } = this.props
     const needle = phrase.text
-    const cleanedText = text.replace(/\n$/g, '\n\n')
     const processedText = reactStringReplace(
-      cleanedText,
+      text,
       needle,
       (match, i) => (
         <FlaggedPhrase
@@ -150,7 +149,7 @@ class Editor extends React.Component {
       flaggedPhrases,
     } = this.props
 
-    let modifiedText = articleText
+    let modifiedText = articleText.replace(/\n$/g, '\n\n')
     flaggedPhrases.map((phrase) => {
       modifiedText = this.insertFlaggedPhrases(modifiedText, phrase)
     })

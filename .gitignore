@@ -59,3 +59,7 @@ typings/
 
 .cache
 dist
+
+# Make sure we don't commit the word list
+# (since it isn't ours to share)
+src/public/data.json

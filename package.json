@@ -27,7 +27,7 @@
     "build": "concurrently 'yarn build:node' 'yarn build:parcel'",
     "build:node": "babel src -d lib",
     "build:parcel": "./node_modules/.bin/parcel build src/client/index.html",
-    "lint": "./node_modules/.bin/eslint 'src/**'",
+    "lint": "./node_modules/.bin/eslint 'src/**/*.js'",
     "test": ""
   },
   "devDependencies": {

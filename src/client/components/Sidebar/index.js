@@ -12,9 +12,8 @@ import ListPane from './ListPane'
 
 // Styles
 const PaneWrapper = styled.div`
-  padding: 40px;
-  width: 30%;
-  height: 100%;
+  padding: 0px 40px;
+  width: 100%;
 `
 
 // Component

@@ -7,8 +7,10 @@ import Header from './Header'
 import Sidebar from './Sidebar'
 import Editor from './Editor'
 
-// Styles
+// Data Imports
+import fullPhraseList from '../../public/data.json'
 
+// Styles
 const HeaderWrapper = styled.div`
   margin: 70px 40px;
   margin-bottom: 25px;
@@ -32,8 +34,8 @@ class App extends React.Component {
   state = {
     articleText: "",
     flaggedPhrases: [],
-    selectedPhrase: {},
-    flagToggleState: false,
+    selectedPhrase: null,
+    flagToggleState: true,
     aboutToggleState: false,
     reviewToggleState: false,
   }
@@ -44,14 +46,13 @@ class App extends React.Component {
     // Eventually this will be an API call.
     // Until then we simulate with a promise.
     return new Promise((resolve, reject) => {
-      const flaggedPhrases = [
-        {
-          id: 0,
-          text: "pants",
-          dCount: Math.random() * 100,
-          rCount: Math.random() * 100,
+      const flaggedPhrases = fullPhraseList.reduce((flags, phrase) => {
+        if(sourceText.toLowerCase().indexOf(phrase.text.toLowerCase()) != -1) {
+          flags.push(phrase)
+          return flags
         }
-      ]
+        return flags
+      }, [])
       resolve(flaggedPhrases)
     })
   }
