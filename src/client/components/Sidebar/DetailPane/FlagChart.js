@@ -11,6 +11,21 @@ const Wrapper = styled.div`
 
 `
 
+const UsageDistributionHeader = styled.div`
+  font-family: Roboto;
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 30px;
+`
+
+const UsageDistributionDescription = styled.div`
+  font-family: Roboto;
+  font-size: 14px;
+  line-height: 19px;
+  margin-top: 10px;
+
+`
+
 const PercentageRow = styled.div`
   margin-top: 30px;
   display: flex;
@@ -80,6 +95,12 @@ class FlagChart extends React.Component {
     return (
       <>
         <Wrapper>
+          <UsageDistributionHeader>
+            Usage Distribution
+          </UsageDistributionHeader>
+          <UsageDistributionDescription>
+            Here's the party breakdown for the instances this phrase appeared in analyzed sections of the congressional record.
+          </UsageDistributionDescription>
           <PercentageRow>
             <PercentageBox>
               <RawPercentage>
