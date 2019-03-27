@@ -75,6 +75,17 @@ const RawPercentage = styled.div`
   text-align: center;
 `
 
+const HorizantalBarChart = styled.div`
+  margin-top: 30px;
+  display: flex;
+  height: 50px;
+`
+
+const HorizantalBar = styled.div`
+  background: ${props => props.color};
+  width: ${props => props.width}%;
+`
+
 
 // Component
 class FlagChart extends React.Component {
@@ -135,6 +146,16 @@ class FlagChart extends React.Component {
               </BoxDescription>
             </PercentageBox>
           </PercentageRow>
+          <HorizantalBarChart>
+            <HorizantalBar
+              color="#6EB6EA"
+              width={dPercent}
+            />
+            <HorizantalBar
+              color="#DA696C"
+              width={rPercent}
+            />
+          </HorizantalBarChart>
         </Wrapper>
       </>
     )

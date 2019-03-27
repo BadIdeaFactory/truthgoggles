@@ -29,6 +29,7 @@ class ListPane extends React.Component {
           <FlagList>
             { flaggedPhrases.map(flaggedPhrase => (
               <FlagCard
+                key={flaggedPhrase.text}
                 flaggedPhrase={flaggedPhrase}
               />
             ))}
